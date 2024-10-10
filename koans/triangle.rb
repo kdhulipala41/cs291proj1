@@ -12,10 +12,26 @@
 #   about_triangle_project.rb
 # and
 #   about_triangle_project_2.rb
-#
-def triangle(a, b, c)
-  # WRITE THIS CODE
+
+
+def triangle(a,b,c)
+  srtd = [a,b,c].sort
+  raise TriangleError if srtd[2] >= srtd[0]+srtd[1]
+
+  # Determine the type of triangle
+  if a==b && a==c
+    :equilateral
+  elsif a==b || a==c || b==c
+    :isosceles
+  else
+    :scalene
+  end
 end
+
+
+
+
+
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
